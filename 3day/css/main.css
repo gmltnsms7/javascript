@@ -27,23 +27,31 @@ html {
 #mainVisual {
   overflow: hidden;
 }
-#mainVisual li {
+#mainVisual li .img {
   /* background-size: contain; */
   /* 가로세로 종횡비 유지하면서 짤리지 않고 가득 채우기 */
   background-size: cover;
   /* 가로세로 종횡비 유지하면서 자르면서 가득 채우기 */
   background-repeat: no-repeat;
   height: 100vh;
+  transform: scale(1.2);
+  transition: all 5s ease 1s;
 }
-#mainVisual .visual01 {
-  background-image: url("../images/main/mainVisual01.jpg");
+#mainVisual .swiper-slide-active .img{
+  transform: scale(1);
 }
-#mainVisual .visual02 {
-  background-image: url("../images/main/mainVisual02.jpg");
+
+
+#mainVisual .visual01 .img{
+  background-image: url(../images/main/mainVisual01.jpg);
 }
-#mainVisual .visual03 {
-  background-image: url("../images/main/mainVisual03.jpg");
+#mainVisual .visual02 .img{
+  background-image: url(../images/main/mainVisual02.jpg);
 }
+#mainVisual .visual03 .img{
+  background-image: url(../images/main/mainVisual03.jpg);
+}
+
 
 /* sass */
 
@@ -88,6 +96,32 @@ html {
   vertical-align: top;
   /* inline-block요소들이 원래 가지고 있는 하단 여백을 없애는 방법 */
 }
+#mainVisual .pagination {
+ position: absolute;
+ bottom: 300px;
+ width: 100%;
+ z-index: 3;
+ display: flex;
+ justify-content: center;
+}
+
+
+#mainVisual .pagination .swiper-pagination-bullet{
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 100px;
+  transition: all 0.5s ease;
+  
+}
+
+#mainVisual .pagination .swiper-pagination-bullet-active{
+background-color: white;
+width: 80px;
+}
+
 #mainVisual .iconScroll {
   position: absolute;
   bottom: 50px;

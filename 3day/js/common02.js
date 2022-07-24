@@ -42,4 +42,24 @@ $(window).on(
 );
 
 //window.addEventListener("scroll", function () {});
-new Swiper("#mainVisual");
+const mainSlider = new Swiper("#mainVisual", {
+    speed : 1000,
+    loop : true,
+    effect: "fade",
+        navigation: {
+          nextEl: '#mainVisual .next',
+          prevEl: '#mainVisual .prev',
+        },
+    autoplay:{
+        delay: 5000,
+        disableOnInteractin:false,
+    },
+    pagination:{
+        el: "#mainVisual .pagination",
+        type: 'bullets',
+        clickable : true,
+      },
+
+    // cube , fade , coverflow , creative , cards, flip
+});
+console.log(mainSlider.speed);
