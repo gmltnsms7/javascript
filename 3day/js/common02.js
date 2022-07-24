@@ -25,13 +25,21 @@ if (Cookies.get("today") !== "ok") {
     popup.addClass("on");
 }
 
-$(window).on("scroll", function () {
-    const st = $(window).scrollTop();
-    if (st > 0) {
-        header.addClass("scroll");
-    } else {
-        header.removeClass("scroll");
-    }
+$(window).on("resize", function () {
+    console.log($(window).width());
 });
 
-window.addEventListener("scroll", function () {});
+$(window).on(
+    "scroll",
+    _.throttle(function () {
+        const st = $(window).scrollTop();
+        if (st > 0) {
+            header.addClass("scroll");
+        } else {
+            header.removeClass("scroll");
+        }
+    }, 100),
+);
+
+//window.addEventListener("scroll", function () {});
+new Swiper("#mainVisual");

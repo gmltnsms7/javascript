@@ -24,10 +24,18 @@ a {
 
 }
 #header.on::after {
-  background-color: #111;
+  background-color: #111 !important;
   color: #111;
 }
+#header.scroll {
+  background-color: #fff;
+  color: #111;
 
+}
+#header.on::after {
+  background-color:transparent;
+ 
+}
 /*
 #header:hover{
   height: 400px;
@@ -77,9 +85,6 @@ a {
   align-items: center;
   padding: 0 30px;
   border-radius: 100px;
-}
-#gnb {
- 
 }
 
 #gnb .list {
