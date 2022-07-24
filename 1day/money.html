@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./CSS/money.css">
+
+    </head>
+    <body>
+
+        <h1>지폐/동전 개수 계산기</h1>
+
+    <div id="tool">
+            <div>
+                <input type="text" id="money" placeholder="금액을 입력하세요." />
+            </div>
+            <div>
+                <button id="btn">금액환산</button>
+            </div>
+            <div>
+                <input type="text" id="result" />
+            </div>
+    </div>
+    </body>
+
+    <script>
+        const money = document.querySelector("#money");
+        const btnCalc = document.querySelector("#btn");
+        const result = document.querySelector("#result");
+        
+        btnCalc.addEventListener("click", function(){
+
+        const fiveM = parseInt(money.value / 50000);
+        const mill = parseInt((money.value % 50000)/ 10000);
+        const fiveT = parseInt((money.value % 10000) /5000);
+        const thou = parseInt((money.value % 5000) / 1000);
+        const fiveH = parseInt((money.value % 1000)/500);
+        const hund = parseInt((money.value % 500) /100);
+        const fiveC = parseInt((money.value % 100) /50);
+        const ten = parseInt((money.value % 50)/10);
+        result.value = 
+        `오만원 ${fiveM} 장, 만원 ${mill} 장 오천원 ${fiveT} 장, 천원 ${thou} 장, 오백원 ${fiveH} 개, 백원 ${hund} 개, 오십원 ${fiveC} 개, 십원 ${ten} 개 입니다.`
+        }
+
+        );
+    </script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      안녕하세요.
+    </div>
+    <div class="printbox" 
+    style="width: 150px; height: 150px; 
+    background-color: red; line-height: 59px;">
+
+    </div>
+    <script>
+      var x = 10;
+      let y = 5;
+      const z = 15;
+      x = 50;
+      let myHeight = 180;
+      const PI = 3.14;
+      let myName = "강희수";
+      console.log("내이름은 " + myName + " 이고 키는" + myHeight + " 입니다")
+      console.log(`내 이름은 ${myName} 이고 키는`);
+      //console.log("hello world");
+      console.log(5 + 10, "강희수");
+      console.log(5 - 10);
+      console.log(5 * 10);
+      console.log(5 / 10);
+      console.log(100 % 3);
+      console.log(x+1);
+      console.log(x+y+z);
+      console.log(PI)
+      console.log(myName + " 입니다")
+      document.write(`내 이름은 ${myName} 이고 키는`)
+      //funtion 
+      console.log(Math.log(100));
+      document.write(10+2)  //특정 오브젝트에 포함된 함수를 메서드
+      document.write("제일 뒤에 들어가")
+      document.querySelector(".printbox")
+      .textContent= `내 이름은 ${myName} 이고 키는`;
+      // java(spring) + js(react ,vue)
+      // node(express) + js(react,vue)
+
+      //함수 선언문 (문 statement) function declation
+      //조건문 If(10>1), 반복문
+      function say(name ,today){
+        //funtion body
+        console.log("오늘은 " + today + "입니다." + name+"님 안녕하세요")
+        //console.log(`${name}님 안녕하세요`)
+      }
+      
+      say("강희수","7월 10일");
+      say("장동건","7월 10일");
+      say("현빈","7월 10일");
+
+        //함수 표현식 (식 expression) 값이 리턴되면 식
+        //숫자, 문자, True , False , Undefined ,Null , {} ,[]
+      const sayHi = function(){
+        console.log("say Hi");
+        return "전지현";
+        console.log("실행안됩니다. 함수 return 아래에 있응게");
+      };
+  
+
+      document.write(say("현빈","7월 12일"));
+
+  </script>
+  </body>
+</html>

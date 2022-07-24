@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ROCK-PAPER-SCISSORS</title>
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="css/common.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+    </head>
+    <body>
+        <header id="header">
+            <h1><strong>ROCK-PAPER-SCISSORS</strong></h1>
+        </header>
+
+        <div id="com">
+            <ul>
+                <li><img src="images/rock.svg" alt="" /></li>
+                <li><img src="images/paper.svg" alt="" /></li>
+                <li><img src="images/scissors.svg" alt="" /></li>
+            </ul>
+        </div>
+        <div id="player">
+            <ul>
+                <li data-id="0"><img src="images/rock.svg" alt="" /></li>
+                <li data-id="1"><img src="images/paper.svg" alt="" /></li>
+                <li data-id="2"><img src="images/scissors.svg" alt="" /></li>
+            </ul>
+        </div>
+        <div id="result">
+            <ul>
+                <!-- <li> class="win">W</li>
+        <li> class="lose">L</li>
+        <li> class="draw">D</li> -->
+            </ul>
+        </div>
+        <div id="cover" class="WinDrawLoss">
+            <h1> </h1>
+            <h2>To Be <strong>Continue~~</strong></h2>
+            <button id="btnRestart">restart game</button>
+        </div>
+            </div>
+    </body>
+    <script>
+        const days = ["일", "월", "화", "수", "목", "금", "토"];
+        const americanDays = ["sun", "mon", "일", "월", "화", "수", "목", "금", "토"];
+
+        console.log(days[new Date().getDay()] + "요일");
+        console.log(americanDays[new Date().getDay()] + "day");
+
+        if (new Date().getDay() === 0) {
+            console.log("일요일");
+        } else if (new Date().getDay() === 1) {
+            console.log("월요일");
+        } else if (new Date().getDay() === 2) {
+            console.log("화요일");
+        } else if (new Date().getDay() === 3) {
+            console.log("수요일");
+        } else if (new Date().getDay() === 4) {
+            console.log("목요일");
+        } else if (new Date().getDay() === 5) {
+            console.log("금요일");
+        }
+
+        const fruits = ["banana", "apple", "berry", "peach"];
+        for (let i = 0; i < 4; i++) {
+            console.log(fruits[i]);
+        }
+        //유사배열
+        const playerItems = document.querySelectorAll("#player ul li");
+        const comItems = document.querySelectorAll("#com ul li");
+        const result = document.querySelector("#result ul");
+        const selectedwords = ["바위", "보", "가위"];
+        const cover = document.querySelector("#cover");
+        const btnRestart = document.querySelector("#btnRestart");
+        const allGameCount = 3;
+        const WinDrawLoss = document.querySelector("#WinDrawLoss")
+        // 게임이 가능한 숫자 (Ex 3 삼세판)
+        let clearID = null;
+        let random = 0;
+        let gameCount = 0;
+        let allStop = null;
+        let loseNum = 0;
+        let winNum = 0;
+        let drawNum = 0;
+        //    comItems[0].style.display = "none";
+        //    comItems[1].style.display = "none";
+        //    comItems[2].style.display = "none";
+        //    for (let i = 0; i <3 ; i++ ){
+        //      playerItems[i].addEventListener("click" ,function(){
+        //      console.log(`${selectedwords[i]}를 눌렀습니다.`);
+        //      });
+        //    }
+        // interation
+        // 자바스크립트 변수의 스코프는 let, const 는 block scope {}를 따른다.
+        // var는 function scope를 따른다.
+
+        const rolling = function () {
+            //console.log("나는 setInterval에 의해 1초에 한번 호출됩니다")
+            random = Math.floor(Math.random() * 3);
+            comItems.forEach(function (item, idx) {
+                //item.style.display = "none";
+                if (idx === random) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        };
+        const rolling2 = function () {
+            console.log("나는 롤링2 입니다.");
+        };
+
+        const restart = function () {
+            btnEnabled(true);
+            clearID = setInterval(rolling, 100);
+        };
+
+        const btnEnabled = function (enable) {
+            playerItems.forEach(function (item, idx) {
+                if (enable === false) {
+                    item.classList.add("not");
+                } else {
+                    item.classList.remove("not");
+                }
+            });
+        };
+        restart();
+        btnEnabled(true);
+        //console.log("나는 setInerval 보다 아래쪽에 있습니다");
+        //rolling();
+        playerItems.forEach(function (item, idx) {
+            console.log(item, "===", idx);
+            item.addEventListener("click", function () {
+                clearInterval(clearID);
+                allStop = setTimeout(restart, 1000);
+                btnEnabled(false);
+                val = document.selec;
+                if (idx === random) {
+                    console.log("비겼습니다.");
+                    result.innerHTML += `<li class="draw">D</li>`;
+                    drawNum++;
+                } else if ((idx === 0 && random === 2) || (idx === 1 && random === 0) || (idx === 2 && random === 1)) {
+                    console.log("이겼습니다.");
+                    result.innerHTML += `<li class="win">W</li>`;
+                    winNum++;
+                } else {
+                    console.log("졌습니다.");
+                    result.innerHTML += `<li class="loss">L</li>`;
+                    loseNum++;
+                }
+                gameCount++;
+                if (gameCount >= allGameCount) {
+                    console.log("3판했음");
+                    clearTimeout(allStop);
+                    cover.classList.add("on");
+                    if (drawNum === 3 || (drawNum === 1 && winNum === 1 && loseNum === 1)) {
+                        console.log("비겼습니다");
+                        WinDrawLoss.innerHTML= "비겼습니다";
+                    } else if (winNum === 2 || (drawNum === 2 && winNum === 1)) console.log("이겼습니다");
+                    WinDrawLoss.innerHTML= "이겼습니다";
+                } else {
+                    console.log("졌습니다");
+                    WinDrawLoss.innerHTML = "졌습니다";
+                   
+                }
+            });
+        });
+        btnRestart.addEventListener("click", function () {
+            gameRestart();
+        });
+        const gameRestart = function () {
+            cover.classList.remove("on");
+            gameCount = 0;
+            winNum = 0;
+            loseNum = 0;
+            drawNum = 0;
+            result.innerHTML = "";
+            restart();
+        };
+        // 비겼을때 ddd, dwl,
+        // 이겼을때 ww, wdd,
+        // 졌을때 alse
+    </script>
+</html>

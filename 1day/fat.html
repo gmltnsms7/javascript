@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            input,
+            button {
+                width: 300px;
+                height: 150px;
+                margin: 20px;
+                text-align: center;
+                border: 2px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <input type="text" id="height" placeholder="키를 cm 단위로 입력하세요. ex) 180" />
+        </div>
+        <div>
+            <input type="text" id="weight" placeholder="몸무게를 kg 단위로 입력하세요. ex) 90" />
+        </div>
+        <div>
+            <button id="calc">비만도 측정</button>
+        </div>
+        <div>
+            <input type="text" id="result" />
+        </div>
+        <div>
+            <input type="text" id="level" />
+        </div>
+    </body>
+
+    <script>
+        const inHeight = document.querySelector("#height");
+        const inWeight = document.querySelector("#weight");
+        const inResult = document.querySelector("#result");
+        const btnCalc = document.querySelector("#calc");
+        const btnlevel = document.querySelector("#level");
+        btnCalc.addEventListener("click", function () {
+            const cm = parseFloat(inHeight.value) / 100;
+            const w = parseFloat(inWeight.value);
+            const fat = w / (cm * cm);
+            let level = "정상"
+            //const fat = w / (cm ** 2);
+            //const fat = w / Math.pow(cm,2);
+
+            if (fat <= 18.5) {
+                level = "저체중";
+            } else if (fat > 18.5 && fat <= 22.9) {
+              level = "정상";
+            } else {
+              level = "비만";
+            }
+            inResult.value = digitformat(fat, 2);
+            btnlevel.value = level;
+        });
+
+        const digitformat = function (num, digit) {
+            return Math.round(num * Math.pow(10, digit)) / Math.pow(10, digit);
+        };
+    </script>
+</html>

@@ -1,0 +1,90 @@
+@import "vars";
+@import "mixin";
+html {
+}
+body {
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  color: #111;
+  // prettier-ignore
+  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05), 
+                                                     rgba(255, 255, 255, 0.05) 1px, 
+                                                       0, transparent 50px);
+  background-color: #333;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#header {
+  height: 60px;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  h1 {
+    font-weight: 300;
+    font-size: 18px;
+    //@include longShadow(#ccc, 50);
+    @include longShadow(darken($main-color , 10) , 50);
+    text-transform: uppercase;
+    strong {
+      font-weight: 700;
+      color: $main-color;
+    }
+  }
+}
+.inputBox {
+  max-width: 640px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 100px auto 0;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  .input {
+    border: none;
+    height: 50px;
+    outline: none;
+    border-radius: 5px;
+    padding: 0 15px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  button {
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #111;
+    color: #fff;
+    font-size: 18px;
+  }
+}
+.gugudanBox {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+
+  table {
+    tr:nth-child(2n + 1) {
+      td {
+        background-color: #eee;
+        color: #111;
+      }
+    }
+    td {
+      //border: 1px solid #fff;
+      padding: 15px;
+      color: #fff;
+    }
+  }
+}

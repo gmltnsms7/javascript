@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    input , button{
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+
+    <input type="text" id="num01" class="input" >
+    <input type="text" id="num02" class="input" >
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+    <button id="multiple">*</button>
+    <button id="divide">/</button>
+    <input type="text" id="result" class="input">
+
+</body>
+<script>
+  //document 는 자바스크립드 dom 객체중 하나
+  //브라우저에서만 사용 가능
+  //console.log(document.querySelector("#num01").value);
+  const num01 = document.querySelector("#num01");
+  const num02 = document.querySelector("#num02");
+  const result = document.querySelector("#result");
+  const btnplus = document.querySelector("#plus");
+  const btnminus = document.querySelector("#minus");
+  const btnmultiple = document.querySelector("#multiple");
+  const btndivide = document.querySelector("#divide");
+  const plus = function(){
+    result.value =  parseInt(num01.value) +  parseInt(num02.value);
+  };
+  const minus = function(){
+    result.value =  parseInt(num01.value) -  parseInt(num02.value);
+  };
+  const multiple = function(){
+    result.value =  parseInt(num01.value) *  parseInt(num02.value);
+  };
+  const divide = function(){
+    result.value =  parseInt(num01.value) /  parseInt(num02.value);
+  };
+  console.log(typeof parseInt(num01.value));
+  console.log(typeof parseInt(num02.value));
+
+  
+ btnplus.addEventListener("click",plus);
+ btnminus.addEventListener("click",minus);
+ btnmultiple.addEventListener("click",multiple);
+ btndivide.addEventListener("click",divide);
+
+  console.log(
+    "나는 btnplus가 클릭 전 먼저 호출, 비동기 동작"
+  )
+  console.log(num01.value);
+  console.log(num02.value);
+  
+</script>
+</html>

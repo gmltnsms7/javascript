@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GUGUDAN</title>
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="css/common.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+    </head>
+    <body>
+        <header id="header">
+            <h1><strong>GUGUDAN </strong></h1>
+        </header>
+        <div class="inputBox">
+            <input type="number" class="input" id="num" step="1" max="9" min="2" placeholder="출력할 구구단을 입력하시오 ex)5" />
+            <button class="calc">generate</button>
+            <button class="reset">reset</button>
+        </div>
+        <div class="gugudanBox">
+            <table>
+                <tbody class="body"></tbody>
+            </table>
+        </div>
+        <script>
+            //if , 반복문 (for , while )
+            //*let sum = 0;
+            // for (let i = 1; i <= 100; i += 2) {
+            //sum = sum + i;
+            //}
+            //console.log (sum);
+            const num = document.querySelector("#num");
+            const calc = document.querySelector(".calc");
+            const dan = document.querySelector(".gugudanBox .body");
+            calc.addEventListener("click", function () {
+                const gugudan = num.value;
+                let html = `<tr>`;
+                for (let j = 1; j < 10; j++) {
+                    html += `<tr>`;
+
+                    for (let i = 2; i < 10; i++) {
+                        html += `
+                   <td> ${i} X ${j} = ${i * j}</td>`;
+                    }
+                }
+                html += `</tr>`;
+                dan.innerHTML += html;
+            });
+        </script>
+    </body>
+</html>
