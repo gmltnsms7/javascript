@@ -1,0 +1,36 @@
+#result > ul {
+  display: flex;
+  width: 1000px;
+  margin: auto;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+#searchBox {
+  display: flex;
+  width: 500px;
+  margin: 100px auto;
+  justify-content: center;
+}
+#searchBox #search {
+  height: 50px;
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  border: 1px solid #d9d9d9;
+  border-radius: 100px 0 0 100px;
+  padding: 0 50px;
+}
+#searchBox #search:focus {
+  background-color: gray;
+}
+#searchBox .btnSearch {
+  background: none;
+  outline: none;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 0 100px 100px 0px;
+  padding: 0 30px;
+  margin-right: 10px;
+}

@@ -1,0 +1,12 @@
+.box {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  &.red{ background-color:  red;}
+  &.green{ background-color:  green;}
+  &.blue{ background-color:  blue;}
+}

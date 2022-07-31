@@ -1,0 +1,28 @@
+body {
+  background-image: url(http://cdn.monews.co.kr/news/photo/202002/208002_59507_3731.png);
+}
+
+#chart02 ul {
+  width: 1000px;
+  margin: 100px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+#chart02 ul li {
+  border: 1px solid white;
+  background-color: gray;
+  padding: 30px 50px;
+  text-align: center;
+  margin: 5px;
+  flex-basis: calc(1.1764705882% - 10px);
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+#chart02 ul li .city {
+  font-size: 18px;
+}
+#chart02 ul li .incDec {
+  font-size: 36px;
+  font-weight: 700;
+}
