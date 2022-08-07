@@ -1,0 +1,235 @@
+body {
+  color: #111;
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  font-size: 16px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  vertical-align: top;
+}
+/* css */
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  color: #fff;
+  height: 100px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+#header.on {
+  height: 400px;
+  background-color: #fff;
+  color: #111;
+}
+#header.on:after {
+  background-color: #111 !important;
+}
+#header.scroll {
+  background-color: #fff;
+  color: #111;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+#header.scroll:after {
+  background-color: transparent;
+}
+
+/* #header:hover {
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #111;
+}
+#header:hover:after {
+  background-color: #111;
+} */
+#header:after {
+  background-color: #fff;
+  content: "";
+  display: block;
+  font-family: serif;
+  height: 1px;
+  pointer-events: none;
+  position: absolute;
+  top: 99px;
+  width: 100%;
+}
+
+#header .container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  /* 전체 넓이를 1920이상 쓰지 않겠다. */
+  max-width: 1920px;
+  position: relative;
+}
+
+#logo {
+  left: 0;
+  position: absolute;
+}
+.online {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  height: 60px;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  border-radius: 100px;
+  /* 엘리먼트의 높이에 보더는 포함하지 않는다. 만약 border를 포함한 넢이를 설정할려면 box-sizing:border-box로 하면 된다. */
+}
+#gnb {
+}
+
+#gnb .list {
+  display: flex;
+  justify-content: center;
+}
+#gnb .list .depth01 {
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  height: 100px;
+  padding: 0 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-transform: uppercase; /*uppercase / lowercase / capitalize*/
+}
+#gnb .list > li {
+  position: relative;
+}
+#gnb .list > li:hover .depth01 {
+  background-color: #bf0c14;
+  color: #fff;
+}
+#gnb .list > li:hover .depth02 {
+  background-color: #bf0c14;
+  color: #fff;
+}
+
+#gnb .list .depth02 {
+  padding: 20px 10px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  text-align: center;
+  height: 300px;
+}
+
+#gnb .list .depth02 li a {
+  border-radius: 5px;
+  display: block;
+  padding: 10px 0;
+}
+#gnb .list .depth02 li a:hover {
+  background-color: #7f060c;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+#footer {
+  background-color: #333;
+  color: #ccc;
+}
+#footer .utilMenu {
+  border-bottom: 1px solid #666;
+}
+#footer .utilMenu ul {
+  display: flex;
+  justify-content: center;
+}
+#footer .utilMenu ul li {
+  position: relative;
+}
+#footer .utilMenu ul li:after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 15px;
+  background-color: #ccc;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#footer .utilMenu ul li:nth-child(1):after {
+  display: none;
+}
+
+#footer .utilMenu ul li a {
+  display: block;
+  padding: 30px 40px;
+}
+#footer .utilMenu ul li a strong {
+  color: #fff;
+  font-weight: 500;
+}
+#footer .addressBox {
+  padding: 50px 0;
+}
+#footer .addressBox .container {
+  position: relative;
+  display: flex;
+}
+#footer .addressBox .address {
+  margin-left: 50px;
+}
+#footer .addressBox .address .info {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+#footer .addressBox .address .info span {
+  margin-right: 20px;
+}
+#footer .addressBox .address .copyright {
+  color: #666;
+}
+#footer .addressBox .tel {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+#footer .addressBox .tel strong {
+  font-size: 42px;
+  letter-spacing: -0.01em;
+  margin-top: 10px;
+}
+
+#popup {
+  position: fixed;
+  left: 50px;
+  top: -120%;
+  background-color: #fff;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  transition: all 0.5s ease;
+}
+#popup.on {
+  top: 50px;
+}
+#popup img {
+  width: 600px;
+}
+#popup .btns {
+  display: flex;
+  margin-top: 0;
+}
+#popup .btns button {
+  flex-basis: 50%;
+  border: none;
+  height: 50px;
+  background-color: #ccc;
+  outline: none;
+}
+#popup .btns #btnTodayClose {
+  background-color: #111;
+  color: #fff;
+}

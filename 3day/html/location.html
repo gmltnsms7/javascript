@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>하이탑</title>
+    <link rel="shortcut icon" href="../images/common/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/swiper-bundle.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/layout02.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <script src="../js/swiper-bundle.min.js"></script>
+    <script src= "../js/jquery-3.6.0.min.js"></script>
+    <script src= "../js/lodash.min.js"></script>
+    <script src="../js/js.cookie.min.js"></script>
+    <script src= "../js/common02.js" defer></script>
+  <body>
+    <header id="header">
+      <h1 id="logo">
+        <a href=""><img src="../images/layout/logo.png" alt="하이탑" /></a>
+      </h1>
+      <nav id="gnb">
+        <h2 class="blind">gnb</h2>
+        <ul class="list">
+          <li>
+            <a href="" class="depth01">Company </a>
+            <ul class="depth02">
+              <li><a href="">사업개요</a></li>
+              <li><a href="">인사말</a></li>
+              <li><a href="">경영이념</a></li>
+              <li><a href="">회사연혁</a></li>
+              <li><a href="">CI소개</a></li>
+              <li><a href="">조직도</a></li>
+              <li><a href="">오시는길</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" class="depth01">Business</a>
+            <ul class="depth02">
+              <li><a href="">경관용포장재</a></li>
+              <li><a href="">기능성포장재</a></li>
+              <li><a href="">조립식바닥재</a></li>
+              <li><a href="">스포츠필드</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" class="depth01">PR</a>
+            <ul class="depth02">
+              <li><a href="">특허인증 </a></li>
+              <li><a href="">시공실적 </a></li>
+              <li><a href="">시공사진 </a></li>
+              <li><a href="">카달로그 </a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" class="depth01">Customer</a>
+            <ul class="depth02">
+              <li><a href="">공지사항 </a></li>
+              <li><a href="">나라장터 물품목록 </a></li>
+              <li><a href="">견적문의 </a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" class="depth01">Recruit</a>
+            <ul class="depth02">
+              <li><a href="">인재상 </a></li>
+              <li><a href="">인사&복지 </a></li>
+              <li><a href="">채용공고 </a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <a href="" class="online">온라인 견적문의</a>
+    </header>
+    <!-- header end -->
+    <!-- Map start  --> 
+
+    <div id="map">
+
+    </div>
+
+    <footer id="footer">
+      <div class="utilMenu">
+        <ul>
+          <li><a href="">이용약관</a></li>
+          <!-- prettier-ignore -->
+          <li><a href=""><strong>개인정보보호정책</strong> </a></li>
+          <li><a href="">사이트맵</a></li>
+          <li><a href="">온라인견적문의</a></li>
+        </ul>
+      </div>
+      <div class="addressBox">
+        <div class="container">
+          <div class="fLogo">
+            <img src="../images/layout/fLogo.png" alt="" />
+          </div>
+          <div class="address">
+            <p class="title">하이탑 : 서울 송파구 성내천로 14길 13 (3층)</p>
+            <!-- prettier-ignore -->
+            <p class="info">
+              <span>대표전화 : 070-7715-4400</span>
+              <span>이메일 : hitop4400@hanmail.net</span>
+              <span>사업자번호 : 402-81-83259</span>
+            </p>
+            <p class="copyright">Copyright ⓒ 2018 HITOP. All rights reserved</p>
+          </div>
+          <!-- prettier-ignore -->
+          <div class="tel">
+            <span>고객만족센터</span>
+            <strong>070-7715-4400</strong>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div id="popup">
+      <img src="../images/common/popup.png" alt="">
+      <div class = "btns">
+        <button id="btnClose">닫기</button>
+        <button id="btnTodayClose">오늘 하루 이창을 열지 않기</button>
+  
+      </div>
+    </div>
+    
+   
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3f7b077ca6c22a75e567a9acf19eed09&libraries=services"></script>
+    </script>
+    <script>
+      const container = document.querySelector("#map"); //지도를 담을 영역의 DOM 레퍼런스
+      const options = { //지도를 생성할 때 필요한 기본 옵션
+	      center: new kakao.maps.LatLng(37.525431631440135, 126.89142541883623), //지도의 중심좌표.
+	      level: 3 //지도의 레벨(확대, 축소 정도)
+};
+
+      const map = new kakao.maps.Map(container, options);
+      
+      //지도 생성 및 객체 리턴
+
+      // 주소-좌표 변환 객체를 생성합니다
+      const geocoder = new kakao.maps.services.Geocoder();
+     
+// 주소로 좌표를 검색합니다
+      geocoder.addressSearch("인천 부평구 부평북로 332", function(result, status) {
+
+    // 정상적으로 검색이 완료됐으면 
+     if (status === kakao.maps.services.Status.OK) {
+
+        const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        //이미지 마커
+
+      const imageSrc = "../images/common/marker_red.png", // 마커이미지의 주소입니다    
+    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+    markerPosition = coords; // 마커가 표시될 위치입니다
+
+// 마커를 생성합니다
+const marker = new kakao.maps.Marker({
+  position: markerPosition,
+  image: markerImage // 마커이미지 설정 
+});
+
+// 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);  
+
+// 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    const content = `<div class="customoverlay">
+      <a href="https://map.kakao.com/link/map/11394059" target="_blank">
+        <span class="title">우리집</span>
+      </a>
+    </div>`;
+
+// 커스텀 오버레이가 표시될 위치입니다 
+    const position = coords; 
+
+// 커스텀 오버레이를 생성합니다
+    const customOverlay = new kakao.maps.CustomOverlay({
+    map: map,
+    position: position,
+    content: content,
+    yAnchor: 1 
+    });
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+      }
+    }
+      );
+    </script>
+  </body>
+</html>

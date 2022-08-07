@@ -1,0 +1,10 @@
+{
+  "imgPath":"../images/",
+  "items" :[
+    {
+      "img" : "supermario01.png",
+      "title" : "flying mario",
+      "img1" : "supermario01.png"
+    }
+  ]
+}
